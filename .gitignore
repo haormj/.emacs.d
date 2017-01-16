@@ -1,0 +1,9 @@
+# 忽略elpa目录
+elpa/
+auto-save-list
+.session
+.smex-items
+history
+org-clock-save.el
+projectile-bookmarks.eld
+recentf
