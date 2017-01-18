@@ -34,6 +34,10 @@
 		sr-speedbar
 		;; 代码折叠
 		hideshowvis
+		;; 自动缩进
+		auto-indent-mode
+		;;
+		protobuf-mode
 		) "Default packages")
 
  (setq package-selected-packages my/packages)
@@ -101,7 +105,12 @@
 ;; 加载主题
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'solarized-light t)
-;; 代码折叠
+;; 按ctrl a的时候 回到有缩进的地方
+(global-set-key (kbd "C-a") 'back-to-indentation)
+(global-set-key (kbd "C-x C-a") 'move-beginning-of-line)
+;; 自动缩进
+ (auto-indent-global-mode)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
