@@ -72,6 +72,7 @@
 (global-linum-mode 1)
 ;; 设置字体
 (set-default-font "Courier 10 Pitch-12")
+
 ;; 设置最近文件
 (require 'recentf)
 (recentf-mode)
@@ -110,6 +111,16 @@
 (global-set-key (kbd "C-x C-a") 'move-beginning-of-line)
 ;; 自动缩进
  (auto-indent-global-mode)
+;; 设置org-mode自动换行
+(add-hook 'org-mode-hook (lambda()(setq truncate-lines nil)))
+
+;; 设置org-table的字体 解决org-mode table中英文对不齐的问题
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-table ((t (:foreground "#6c71c4" :family "Ubuntu Mono")))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
