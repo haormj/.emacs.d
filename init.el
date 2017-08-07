@@ -118,6 +118,12 @@
 (eval-after-load "org"
   '(require 'ox-md nil t))
 
+;; 任务文件清单
+(setq org-agenda-files (list "~/org/todos/work.org"
+                             "~/org/todos/project.org"
+                             "~/org/todos/home.org"
+                             ))
+
 ;; 设置org-table的字体 解决org-mode table中英文对不齐的问题
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
