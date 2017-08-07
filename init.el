@@ -90,7 +90,7 @@
 ;; 去掉滚动
 (scroll-bar-mode -1)
 ;; 不显示菜单栏
-(menu-bar-mode -1)
+;; (menu-bar-mode -1)
 ;; js2-mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-hook 'js2-mode-hook 'hideshowvis-enable)
@@ -113,6 +113,10 @@
  (auto-indent-global-mode)
 ;; 设置org-mode自动换行
 (add-hook 'org-mode-hook (lambda()(setq truncate-lines nil)))
+
+;; org 导出md
+(eval-after-load "org"
+  '(require 'ox-md nil t))
 
 ;; 设置org-table的字体 解决org-mode table中英文对不齐的问题
 (custom-set-faces
