@@ -119,10 +119,46 @@
   '(require 'ox-md nil t))
 
 ;; 任务文件清单
-(setq org-agenda-files (list "~/org/todos/work.org"
-                             "~/org/todos/project.org"
-                             "~/org/todos/home.org"
+(setq org-agenda-files (list "~/org/agenda"
                              ))
+;; org-mode 添加todo关键词
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "DOING(d)" "PAUSE(p)" "|" "DONE(d)" "CANCELED(a)")
+        ))
+
+;; 定义转接 也就是将一个内容从一个文件移动到另一个文件中
+(setq org-refile-targets (quote (("~/org/agenda/plan.org" :level . 1)
+				 ("~/org/agenda/finish.org" :level . 1))))
+
+;; 定义打开文件快捷键
+(defun open-inbox-file()
+  (interactive)
+  (find-file "~/org/agenda/inbox.org"))
+(defun open-plan-file()
+  (interactive)
+  (find-file "~/org/agenda/plan.org"))
+(defun open-finish-file()
+  (interactive)
+  (find-file "~/org/agenda/finish.org"))
+(defun open-init-file()
+  (interactive)
+  (print "hello")
+  (find-file "~/.emacs.d/init.el"))
+;; (open-inbox-file "~/org/agenda/inbox.org")
+(global-set-key "\C-ci" 'open-inbox-file)
+(global-set-key "\C-cp" 'open-plan-file)
+(global-set-key "\C-cf" 'open-finish-file)
+(global-set-key (kbd "<f5>") (quote open-init-file))
+
+;; 设置agenda的快捷键
+(global-set-key "\C-ca" 'org-agenda)
+
+;; 在任务完成的时候 添加Closed时间
+(setq org-log-done 'time)
+
+;; org exec golang
+(add-to-list 'load-path "~/.emacs.d/plugins/ob-go.el")
+(require 'ob-go)
 
 ;; 设置org-table的字体 解决org-mode table中英文对不齐的问题
 (custom-set-faces
