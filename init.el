@@ -142,7 +142,6 @@
   (find-file "~/org/agenda/finish.org"))
 (defun open-init-file()
   (interactive)
-  (print "hello")
   (find-file "~/.emacs.d/init.el"))
 ;; (open-inbox-file "~/org/agenda/inbox.org")
 (global-set-key "\C-ci" 'open-inbox-file)
