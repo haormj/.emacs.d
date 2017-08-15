@@ -131,23 +131,10 @@
 				 ("~/org/agenda/finish.org" :level . 1))))
 
 ;; 定义打开文件快捷键
-(defun open-inbox-file()
-  (interactive)
-  (find-file "~/org/agenda/inbox.org"))
-(defun open-plan-file()
-  (interactive)
-  (find-file "~/org/agenda/plan.org"))
-(defun open-finish-file()
-  (interactive)
-  (find-file "~/org/agenda/finish.org"))
-(defun open-init-file()
-  (interactive)
-  (find-file "~/.emacs.d/init.el"))
-;; (open-inbox-file "~/org/agenda/inbox.org")
-(global-set-key "\C-ci" 'open-inbox-file)
-(global-set-key "\C-cp" 'open-plan-file)
-(global-set-key "\C-cf" 'open-finish-file)
-(global-set-key (kbd "<f5>") (quote open-init-file))
+(global-set-key (kbd "C-c i") (lambda() (interactive) (find-file "~/org/agenda/inbox.org")))
+(global-set-key "\C-cp" (lambda() (interactive) (find-file "~/org/agenda/plan.org")))
+(global-set-key "\C-cf" (lambda() (interactive) (find-file "~/org/agenda/finish.org")))
+(global-set-key (kbd "<f5>") (lambda() (interactive) (find-file "~/.emacs.d/init.el")))
 
 ;; 设置agenda的快捷键
 (global-set-key "\C-ca" 'org-agenda)
